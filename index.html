@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swarm Formation Studio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="grid">
+      <section class="controls">
+        <p class="eyebrow">Multi-Agent Simulation</p>
+        <h1>Swarm Formation Studio</h1>
+        <p class="desc">Real-time boid intelligence with formation constraints, obstacle avoidance, and mission telemetry.</p>
+
+        <div class="card">
+          <h2>Mission Mode</h2>
+          <select id="formationMode">
+            <option value="free">Free Swarm</option>
+            <option value="circle">Defensive Circle</option>
+            <option value="v">V Formation</option>
+            <option value="line">Sweep Line</option>
+          </select>
+        </div>
+
+        <div class="card">
+          <h2>Parameters</h2>
+          <label>Agents
+            <input id="countInput" type="range" min="20" max="180" step="5" value="90" />
+            <span id="countValue">90</span>
+          </label>
+          <label>Alignment
+            <input id="alignInput" type="range" min="0" max="2" step="0.05" value="0.85" />
+            <span id="alignValue">0.85</span>
+          </label>
+          <label>Cohesion
+            <input id="cohesionInput" type="range" min="0" max="2" step="0.05" value="0.72" />
+            <span id="cohesionValue">0.72</span>
+          </label>
+          <label>Separation
+            <input id="separationInput" type="range" min="0" max="2.5" step="0.05" value="1.25" />
+            <span id="separationValue">1.25</span>
+          </label>
+        </div>
+
+        <div class="card">
+          <h2>Actions</h2>
+          <div class="row">
+            <button id="resetBtn">Reset Swarm</button>
+            <button id="pauseBtn">Pause</button>
+          </div>
+        </div>
+
+        <div class="card telemetry">
+          <h2>Telemetry</h2>
+          <p>Average Speed: <strong id="speedText">0</strong></p>
+          <p>Formation Score: <strong id="formationScore">0</strong></p>
+          <p>Obstacle Pressure: <strong id="pressureText">0</strong></p>
+        </div>
+      </section>
+
+      <section class="sim-wrap">
+        <canvas id="sim" width="980" height="620"></canvas>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
